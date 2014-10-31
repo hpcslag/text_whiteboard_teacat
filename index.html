@@ -1,0 +1,32 @@
+<html>
+<head>
+<link href="tocas.css" rel="stylesheet" type="text/css">
+<script src="tocas.js" type="text/javascript"></script>
+<style type="text/css">
+	body,html{
+		font-family: "微軟正黑體";
+	}
+</style>
+</head>
+<body>
+<input class="fill tb tb-none center" placeholder="Enter text...">
+    
+<script>
+$('input').css({'font-size': parseInt($('input').css('width')) / $('input').val().length + 'px'});
+
+$_('input').onkeydown = function()
+{
+    Length = $('input').val().length;
+    FontSize = parseInt($('input').css('font-size'));
+    
+    SetFontSize = parseInt($('input').css('width')) / (Length)
+    
+    /** 如果超過螢幕最高高度  設為螢幕高度 */
+    if(SetFontSize > parseInt($('input').css('height'))) SetFontSize = parseInt($('input').css('height'))
+    
+    /** 設定 */
+    $('input').css({'font-size': SetFontSize + 'px'});
+}
+</script>
+</body>
+</html>
